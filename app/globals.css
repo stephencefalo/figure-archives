@@ -2943,3 +2943,174 @@ img {
     flex-direction: column;
   }
 }
+/* --------------------------------
+   ARCHIVE BROWSER
+-------------------------------- */
+
+.archive-tools {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 50px;
+
+  align-items: end;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-tools .filters {
+  padding: 0;
+
+  border: 0;
+}
+
+.archive-search label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-size: 0.56rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.archive-search-field {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--ink);
+}
+
+.archive-search-field input {
+  width: 100%;
+
+  padding: 10px 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--ink);
+
+  font-family: var(--serif);
+  font-size: 0.95rem;
+}
+
+.archive-search-field input::placeholder {
+  color: var(--muted);
+}
+
+.archive-search-field button {
+  width: 30px;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--ink);
+
+  cursor: pointer;
+
+  font-family: var(--serif);
+  font-size: 1.3rem;
+}
+
+.archive-results {
+  padding-top: 55px;
+  padding-bottom: 120px;
+}
+
+.archive-result-heading {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.archive-empty {
+  max-width: 500px;
+
+  margin: 110px auto;
+
+  text-align: center;
+}
+
+.archive-empty-mark {
+  width: 82px;
+  height: 82px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 30px;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  font-family: var(--serif);
+  font-size: 1.4rem;
+}
+
+.archive-empty h2 {
+  margin: 0 0 15px;
+
+  font-family: var(--serif);
+  font-size: 2.7rem;
+  font-weight: 400;
+}
+
+.archive-empty p {
+  margin-bottom: 30px;
+
+  color: var(--muted);
+
+  font-family: var(--serif);
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+
+  .archive-tools {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .archive-tools .filters {
+    order: 2;
+
+    width: 100%;
+
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+  }
+
+  .archive-tools .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .archive-search {
+    order: 1;
+  }
+
+  .archive-results {
+    padding-top: 35px;
+    padding-bottom: 80px;
+  }
+}
