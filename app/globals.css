@@ -1362,3 +1362,283 @@ img {
     padding: 85px 0;
   }
 }
+/* --------------------------------
+   MY ARCHIVE
+-------------------------------- */
+
+.account-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+
+  padding-top: 100px;
+  padding-bottom: 65px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.account-hero h1 {
+  margin: 15px 0 20px;
+
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+
+.account-hero p {
+  max-width: 570px;
+
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.account-status {
+  min-width: 180px;
+
+  padding: 18px 0;
+
+  border-top: 1px solid var(--ink);
+}
+
+.account-status span,
+.account-status strong {
+  display: block;
+}
+
+.account-status span {
+  margin-bottom: 7px;
+
+  color: var(--muted);
+
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.account-status strong {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.my-archive {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 70px;
+
+  min-height: 650px;
+
+  padding-top: 65px;
+  padding-bottom: 110px;
+}
+
+.archive-sidebar {
+  border-right: 1px solid var(--line);
+}
+
+.archive-sidebar nav {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 25px;
+}
+
+.archive-sidebar nav span {
+  padding: 12px 25px 12px 0;
+
+  color: var(--muted);
+
+  font-family: var(--serif);
+  cursor: default;
+}
+
+.archive-sidebar nav span.active {
+  color: var(--ink);
+}
+
+.library-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 30px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.library-heading h2 {
+  margin: 10px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.library-count {
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.empty-archive {
+  max-width: 540px;
+
+  margin: 100px auto;
+
+  text-align: center;
+}
+
+.empty-mark {
+  width: 90px;
+  height: 90px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 35px;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+
+.empty-archive h3 {
+  margin: 0 0 18px;
+
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.empty-archive p {
+  margin-bottom: 30px;
+
+  color: var(--muted);
+
+  font-family: var(--serif);
+  line-height: 1.7;
+}
+
+/* --------------------------------
+   ARCHIVE BENEFITS
+-------------------------------- */
+
+.archive-benefits {
+  padding: 100px 0;
+
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 45px;
+
+  border-top: 1px solid rgba(242, 238, 229, 0.25);
+}
+
+.benefit-grid > div {
+  padding: 35px 35px 0 0;
+}
+
+.benefit-grid > div + div {
+  padding-left: 35px;
+
+  border-left: 1px solid rgba(242, 238, 229, 0.25);
+}
+
+.benefit-grid span {
+  color: #a8906c;
+
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.benefit-grid h3 {
+  margin: 25px 0 12px;
+
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.benefit-grid p {
+  max-width: 350px;
+
+  color: #c8c0b3;
+
+  line-height: 1.7;
+}
+
+/* --------------------------------
+   MY ARCHIVE MOBILE
+-------------------------------- */
+
+@media (max-width: 760px) {
+
+  .account-hero {
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding-top: 75px;
+    padding-bottom: 45px;
+  }
+
+  .account-status {
+    width: 100%;
+  }
+
+  .my-archive {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding-top: 40px;
+  }
+
+  .archive-sidebar {
+    overflow-x: auto;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .archive-sidebar nav {
+    flex-direction: row;
+
+    white-space: nowrap;
+  }
+
+  .archive-sidebar nav span {
+    padding-right: 25px;
+  }
+
+  .empty-archive {
+    margin: 70px auto;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-grid > div,
+  .benefit-grid > div + div {
+    padding: 30px 0;
+
+    border-left: 0;
+    border-bottom: 1px solid rgba(242, 238, 229, 0.25);
+  }
+}
