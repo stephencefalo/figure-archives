@@ -3272,3 +3272,551 @@ img {
   background: rgba(22, 21, 19, 0.75);
   color: var(--ivory);
 }
+/* --------------------------------
+   STUDY RECORD
+-------------------------------- */
+
+.study-record {
+  padding-top: 55px;
+}
+
+.study-record-top {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 13px 0;
+
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.study-record-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+
+  align-items: end;
+
+  padding: 65px 0;
+}
+
+.study-record-heading h1 {
+  margin: 15px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 400;
+  line-height: 0.83;
+  letter-spacing: -0.06em;
+}
+
+.study-record-artist {
+  min-width: 210px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid var(--ink);
+}
+
+.study-record-artist span,
+.study-record-artist a {
+  display: block;
+}
+
+.study-record-artist span {
+  margin-bottom: 7px;
+
+  color: var(--muted);
+
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.study-record-artist a {
+  color: var(--ink);
+
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+/* --------------------------------
+   STUDY VIEWER
+-------------------------------- */
+
+.study-viewer-section {
+  padding-bottom: 100px;
+}
+
+.study-viewer {
+  border-top: 1px solid var(--ink);
+}
+
+.viewer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 0;
+}
+
+.viewer-toolbar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.viewer-pose {
+  color: var(--muted);
+
+  font-family: var(--serif);
+  font-size: 0.9rem;
+}
+
+.viewer-count {
+  color: var(--muted);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+}
+
+.viewer-stage {
+  position: relative;
+
+  background: #211f1c;
+}
+
+.viewer-main-image {
+  aspect-ratio: 16 / 10;
+
+  min-height: 600px;
+}
+
+.viewer-arrow {
+  position: absolute;
+  top: 50%;
+
+  z-index: 5;
+
+  width: 50px;
+  height: 50px;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+
+  background: rgba(22, 21, 19, 0.45);
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 1.25rem;
+}
+
+.viewer-arrow-left {
+  left: 20px;
+}
+
+.viewer-arrow-right {
+  right: 20px;
+}
+
+.viewer-angle {
+  position: absolute;
+
+  right: 20px;
+  bottom: 20px;
+
+  z-index: 4;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.viewer-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 10px;
+
+  padding-top: 10px;
+}
+
+.viewer-thumbnail {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--ink);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  opacity: 0.55;
+
+  transition: opacity 0.2s ease;
+}
+
+.viewer-thumbnail:hover,
+.viewer-thumbnail.active {
+  opacity: 1;
+}
+
+.viewer-thumbnail-image {
+  aspect-ratio: 4 / 5;
+}
+
+.viewer-thumbnail.active
+.viewer-thumbnail-image {
+  outline: 1px solid var(--ink);
+  outline-offset: -1px;
+}
+
+.viewer-thumbnail-label {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 9px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.viewer-sequence {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+
+  align-items: center;
+
+  padding: 35px 0;
+
+  color: var(--muted);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.viewer-sequence-line {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewer-sequence-line::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background: var(--line);
+}
+
+.sequence-point {
+  position: relative;
+  z-index: 2;
+
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+
+  background: var(--ivory);
+
+  cursor: pointer;
+}
+
+.sequence-point.active {
+  background: var(--ink);
+}
+
+.viewer-note {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 25px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.viewer-note > span {
+  color: var(--muted);
+
+  font-size: 0.57rem;
+  letter-spacing: 0.1em;
+}
+
+.viewer-note p {
+  max-width: 550px;
+
+  margin: 0;
+
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+
+/* --------------------------------
+   STUDY PURCHASE
+-------------------------------- */
+
+.study-purchase {
+  padding-top: 100px;
+  padding-bottom: 110px;
+
+  border-top: 1px solid var(--line);
+}
+
+.study-purchase-description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 75px;
+}
+
+.study-purchase-description p {
+  max-width: 650px;
+
+  margin: 0;
+
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1.7;
+}
+
+.study-specification {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.study-specification div {
+  padding: 22px 20px 22px 0;
+}
+
+.study-specification div + div {
+  padding-left: 20px;
+
+  border-left: 1px solid var(--line);
+}
+
+.study-specification span,
+.study-specification strong {
+  display: block;
+}
+
+.study-specification span {
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.study-specification strong {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.study-acquisition {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 50px;
+
+  padding-top: 60px;
+}
+
+.study-price {
+  margin-top: 8px;
+
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.study-acquisition-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 12px;
+}
+
+.study-acquisition-action span {
+  color: var(--muted);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------
+   STUDY LICENSE
+-------------------------------- */
+
+.study-license-band {
+  padding: 110px 0;
+
+  background: var(--paper);
+}
+
+.study-license-band .shell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.study-license-band h2 {
+  margin: 18px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.study-license-band p {
+  max-width: 520px;
+
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.study-closing {
+  padding: 120px 0;
+
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.study-closing blockquote {
+  max-width: 1100px;
+
+  margin: 25px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+/* --------------------------------
+   STUDY VIEWER MOBILE
+-------------------------------- */
+
+@media (max-width: 760px) {
+
+  .study-record-top {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .study-record-heading {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 50px 0;
+  }
+
+  .study-record-heading h1 {
+    font-size: 4.5rem;
+  }
+
+  .viewer-main-image {
+    min-height: 480px;
+
+    aspect-ratio: 4 / 5;
+  }
+
+  .viewer-thumbnails {
+    overflow-x: auto;
+
+    grid-template-columns:
+      repeat(5, minmax(125px, 1fr));
+  }
+
+  .viewer-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .viewer-note {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .study-purchase-description {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .study-specification {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .study-specification div:nth-child(3) {
+    padding-left: 0;
+
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .study-specification div:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .study-acquisition {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .study-acquisition-action {
+    width: 100%;
+
+    align-items: flex-start;
+  }
+
+  .study-license-band .shell {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+}
