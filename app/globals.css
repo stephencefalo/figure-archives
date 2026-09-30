@@ -2789,3 +2789,157 @@ img {
     flex-direction: column;
   }
 }
+/* --------------------------------
+   ABOUT
+-------------------------------- */
+
+.about-manifesto {
+  padding: 120px 0;
+
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.about-manifesto p {
+  max-width: 1200px;
+
+  margin: 25px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+}
+
+.about-story h2 {
+  max-width: 650px;
+
+  margin: 18px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.about-copy p {
+  margin: 0 0 30px;
+
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.about-principles {
+  padding: 100px 0;
+
+  background: var(--paper);
+}
+
+.about-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 45px;
+
+  border-top: 1px solid var(--line);
+}
+
+.about-principle-grid article {
+  padding: 30px 30px 0 0;
+}
+
+.about-principle-grid article + article {
+  padding-left: 30px;
+
+  border-left: 1px solid var(--line);
+}
+
+.about-principle-grid span {
+  color: var(--bronze);
+
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.about-principle-grid h3 {
+  margin: 45px 0 15px;
+
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.about-principle-grid p {
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+.about-end {
+  padding: 120px 0;
+}
+
+.about-end .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 70px;
+}
+
+.about-end h2 {
+  margin: 18px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.about-end-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 25px;
+}
+
+@media (max-width: 760px) {
+
+  .about-story {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .about-principle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-principle-grid article,
+  .about-principle-grid article + article {
+    padding: 30px 0;
+
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about-principle-grid h3 {
+    margin-top: 20px;
+  }
+
+  .about-end .shell {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
