@@ -3172,3 +3172,103 @@ img {
 
   margin-top: 35px;
 }
+/* --------------------------------
+   ARCHIVE IMAGE SYSTEM
+-------------------------------- */
+
+.archive-image,
+.archive-placeholder {
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: #d7cfc2;
+}
+
+.archive-image img {
+  object-fit: cover;
+}
+
+.archive-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 18px;
+
+  background:
+    radial-gradient(
+      circle at 65% 30%,
+      rgba(255, 255, 255, 0.35),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #c6bbab,
+      #817565 55%,
+      #39342d
+    );
+
+  color: rgba(251, 249, 244, 0.88);
+}
+
+.study-card-image {
+  aspect-ratio: 4 / 5;
+}
+
+.placeholder-id,
+.placeholder-status,
+.preview-id,
+.preview-watermark {
+  position: relative;
+  z-index: 2;
+
+  font-size: 0.53rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.placeholder-mark {
+  align-self: center;
+
+  margin: auto 0;
+
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8vw, 8rem);
+  opacity: 0.35;
+}
+
+.placeholder-status {
+  align-self: flex-end;
+}
+
+.preview-watermark {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-18deg);
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: clamp(0.7rem, 1.4vw, 1rem);
+  letter-spacing: 0.3em;
+
+  white-space: nowrap;
+}
+
+.preview-id {
+  position: absolute;
+
+  left: 15px;
+  bottom: 15px;
+
+  padding: 7px 9px;
+
+  background: rgba(22, 21, 19, 0.75);
+  color: var(--ivory);
+}
