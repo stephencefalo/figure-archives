@@ -2005,3 +2005,54 @@ img {
     grid-column: auto;
   }
 }
+/* --------------------------------
+   CONTRIBUTOR CTA
+-------------------------------- */
+
+.creator-cta {
+  padding: 110px 0;
+
+  background: var(--paper);
+}
+
+.creator-cta-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 100px;
+
+  align-items: end;
+}
+
+.creator-cta h2 {
+  max-width: 700px;
+
+  margin: 18px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.creator-cta p {
+  margin-bottom: 30px;
+
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.creator-cta .linkline {
+  display: block;
+  width: max-content;
+
+  margin-top: 25px;
+}
+
+@media (max-width: 760px) {
+  .creator-cta-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
