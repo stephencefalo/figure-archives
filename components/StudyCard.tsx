@@ -1,5 +1,7 @@
 import Link from "next/link";
+
 import type { Study } from "@/lib/data";
+import { StudyImage } from "@/components/StudyImage";
 
 export function StudyCard({
   study,
@@ -11,11 +13,12 @@ export function StudyCard({
       href={`/study/${study.slug}`}
       className="study-card"
     >
-      <div className="image">
-        <span className="art-caption">
-          {study.id}
-        </span>
-      </div>
+      <StudyImage
+        src={study.cover}
+        alt={`${study.title} by ${study.artist}`}
+        archiveId={study.id}
+        className="study-card-image"
+      />
 
       <div className="study-meta">
         <div>
