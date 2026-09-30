@@ -1198,3 +1198,167 @@ img {
     padding: 85px 0;
   }
 }
+/* --------------------------------
+   LICENSING
+-------------------------------- */
+
+.license-intro {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.license-statement {
+  max-width: 1100px;
+
+  margin: 25px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.license-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.license-column {
+  padding: 65px 60px 75px 0;
+}
+
+.license-column + .license-column {
+  padding-left: 60px;
+  padding-right: 0;
+
+  border-left: 1px solid var(--line);
+}
+
+.license-symbol {
+  margin-bottom: 45px;
+
+  font-family: var(--serif);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.license-column h2 {
+  max-width: 470px;
+
+  margin: 15px 0 35px;
+
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.license-column ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.license-column li {
+  padding: 15px 0;
+
+  border-top: 1px solid var(--line);
+
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.license-principle {
+  padding: 120px 0;
+
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.license-principle p {
+  max-width: 1200px;
+
+  margin: 25px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.license-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.license-details h2 {
+  max-width: 600px;
+
+  margin: 18px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4.5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.license-details p {
+  margin-top: 0;
+  margin-bottom: 25px;
+
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.license-details .legal-note {
+  margin-top: 45px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .license-intro {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .license-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .license-column,
+  .license-column + .license-column {
+    padding: 55px 0;
+
+    border-left: 0;
+  }
+
+  .license-column + .license-column {
+    border-top: 1px solid var(--line);
+  }
+
+  .license-details {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .license-principle {
+    padding: 85px 0;
+  }
+}
