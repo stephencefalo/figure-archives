@@ -21,13 +21,10 @@ export function StudyViewer({
   if (views.length === 0) {
     return (
       <div className="viewer-empty">
-        <span className="eyebrow">
-          Study Preview
-        </span>
-
+        <span className="eyebrow">Study Preview</span>
         <p>
-          Preview images for this study have not
-          entered the Archive yet.
+          Preview images for this study have not entered
+          the Archive yet.
         </p>
       </div>
     );
@@ -37,54 +34,84 @@ export function StudyViewer({
 
   function previousView() {
     setActiveIndex((current) =>
-      current === 0
-        ? views.length - 1
-        : current - 1
+      current === 0 ? views.length - 1 : current - 1
     );
   }
 
   function nextView() {
     setActiveIndex((current) =>
-      current === views.length - 1
-        ? 0
-        : current + 1
+      current === views.length - 1 ? 0 : current + 1
     );
   }
 
   return (
     <div className="study-viewer">
-      <div className="viewer-toolbar">
+      <div className="viewer-topline">
         <div>
-          <span className="eyebrow">
-            Study Viewer
-          </span>
-
-          <span className="viewer-pose">
-            Pose {activeView.pose.replace("P", "")}
-          </span>
+          <span className="eyebrow">Study Viewer</span>
+          <span className="viewer-pose">Pose 01</span>
         </div>
 
-        <div className="viewer-count">
-          {String(activeIndex + 1).padStart(2, "0")}
-          {" / "}
+        <span className="viewer-count">
+          {String(activeIndex + 1).padStart(2, "0")} /{" "}
           {String(views.length).padStart(2, "0")}
-        </div>
+        </span>
       </div>
 
-      <div className="viewer-stage">
-        <StudyImage
-          src={activeView.preview}
-          alt={`${title} — ${activeView.angle}`}
-          archiveId={activeView.id}
-          className="viewer-main-image"
-          priority
-        />
+      <div
+        className={
+          activeView.locked
+            ? "viewer-stage viewer-stage-locked"
+            : "viewer-stage"
+        }
+      >
+        {activeView.locked ? (
+          <>
+            <div className="locked-reference-background">
+              <span className="locked-reference-id">
+                {activeView.id}
+              </span>
+
+              <span className="locked-reference-mark">
+                FA
+              </span>
+            </div>
+
+            <div className="locked-reference-overlay">
+              <span className="locked-reference-kicker">
+                {activeView.code} · {activeView.angle}
+              </span>
+
+              <strong>Reference Locked</strong>
+
+              <p>
+                This perspective is included with the
+                complete study.
+              </p>
+
+              <a
+                href="#acquire-study"
+                className="locked-reference-action"
+              >
+                Acquire Study →
+              </a>
+            </div>
+          </>
+        ) : (
+          <StudyImage
+            src={activeView.preview}
+            alt={`${title} — ${activeView.angle}`}
+            archiveId={activeView.id}
+            className="viewer-main-image"
+            priority
+          />
+        )}
 
         <button
           type="button"
           className="viewer-arrow viewer-arrow-left"
           onClick={previousView}
-          aria-label="Previous view"
+          aria-label="Previous perspective"
         >
           ←
         </button>
@@ -93,77 +120,93 @@ export function StudyViewer({
           type="button"
           className="viewer-arrow viewer-arrow-right"
           onClick={nextView}
-          aria-label="Next view"
+          aria-label="Next perspective"
         >
           →
         </button>
-
-        <div className="viewer-angle">
-          {activeView.angle}
-        </div>
       </div>
 
-      <div className="viewer-thumbnails">
-        {views.map((view, index) => (
-          <button
-            type="button"
-            key={view.id}
-            className={
-              index === activeIndex
-                ? "viewer-thumbnail active"
-                : "viewer-thumbnail"
-            }
-            onClick={() => setActiveIndex(index)}
-            aria-label={`View ${view.angle}`}
-          >
-            <StudyImage
-              src={view.thumbnail ?? view.preview}
-              alt={`${title} — ${view.angle}`}
-              archiveId={view.view}
-              className="viewer-thumbnail-image"
-            />
+      <div
+        className="viewer-thumbnails"
+        aria-label="Study perspectives"
+      >
+        {views.map((view, index) => {
+          const active = index === activeIndex;
 
-            <span className="viewer-thumbnail-label">
-              <span>{view.view}</span>
-              <span>{view.angle}</span>
-            </span>
-          </button>
-        ))}
+          return (
+            <button
+              type="button"
+              key={view.id}
+              className={[
+                "viewer-thumb",
+                active ? "active" : "",
+                view.locked ? "locked" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`${view.code} ${view.angle}${
+                view.locked ? " — locked" : ""
+              }`}
+            >
+              <div className="viewer-thumb-image">
+                {view.locked ? (
+                  <div className="viewer-thumb-locked-art">
+                    <span className="viewer-thumb-fa">
+                      FA
+                    </span>
+
+                    <span className="viewer-thumb-lock">
+                      LOCKED
+                    </span>
+                  </div>
+                ) : (
+                  <StudyImage
+                    src={view.thumbnail ?? view.preview}
+                    alt={`${title} — ${view.angle}`}
+                    archiveId={view.id}
+                  />
+                )}
+              </div>
+
+              <div className="viewer-thumb-meta">
+                <span>{view.code}</span>
+                <span>{view.angle}</span>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <div className="viewer-sequence">
-        <span>
-          Front
-        </span>
+      <div className="viewer-axis">
+        <span>Front</span>
 
-        <div className="viewer-sequence-line">
+        <div className="viewer-axis-line">
           {views.map((view, index) => (
             <button
               type="button"
               key={view.id}
-              aria-label={`Select ${view.angle}`}
               className={
                 index === activeIndex
-                  ? "sequence-point active"
-                  : "sequence-point"
+                  ? "viewer-axis-dot active"
+                  : "viewer-axis-dot"
               }
               onClick={() => setActiveIndex(index)}
+              aria-label={`Select ${view.angle}`}
             />
           ))}
         </div>
 
-        <span>
-          Rear
-        </span>
+        <span>Rear</span>
       </div>
 
-      <div className="viewer-note">
-        <span>{studyId}</span>
+      <div className="viewer-caption">
+        <span>{activeView.id}</span>
 
         <p>
-          Multiple viewpoints allow the figure
-          to be understood as form in space,
-          rather than as a single photograph.
+          {activeView.locked
+            ? `${activeView.angle} perspective — available in the complete study.`
+            : "Multiple viewpoints allow the figure to be understood as form in space, rather than as a single photograph."}
         </p>
       </div>
     </div>
