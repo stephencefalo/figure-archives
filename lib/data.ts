@@ -6,6 +6,7 @@ export type StudyView = {
   angle: string;
   preview: string | null;
   thumbnail: string | null;
+  locked: boolean;
 };
 
 export type Pose = {
@@ -41,17 +42,8 @@ export type Collection = {
   studies: ArchiveStudy[];
 };
 
-/*
-  NEW FIGURE ARCHIVES ARCHITECTURE
-
-  Collection
-    → Study
-      → Pose
-        → View
-
-  Example:
-  FA 0001 / S01 / P01 / V01
-*/
+const firstPreview =
+  "/studies/fa-0001/preview/FA0001_S01_P01_V01_preview.png";
 
 function createFiveViews(
   collectionId: string,
@@ -69,14 +61,21 @@ function createFiveViews(
   return angles.map((angle, index) => {
     const viewCode = `V${String(index + 1).padStart(2, "0")}`;
 
+    const isFirstPublicPreview =
+      collectionId === "FA 0001" &&
+      studyCode === "S01" &&
+      poseCode === "P01" &&
+      viewCode === "V01";
+
     return {
       id: `${collectionId} / ${studyCode} / ${poseCode} / ${viewCode}`,
       code: viewCode,
       pose: poseCode,
       view: viewCode,
       angle,
-      preview: null,
-      thumbnail: null,
+      preview: isFirstPublicPreview ? firstPreview : null,
+      thumbnail: isFirstPublicPreview ? firstPreview : null,
+      locked: !isFirstPublicPreview,
     };
   });
 }
@@ -94,7 +93,7 @@ export const collections: Collection[] = [
     category: "Classical Figure",
     description:
       "A foundational collection devoted to proportion, gesture, weight, movement, and the figure in space. Organized as working studies rather than isolated photographs.",
-    cover: null,
+    cover: firstPreview,
     collectionPrice: 49,
     studies: [
       {
@@ -104,7 +103,7 @@ export const collections: Collection[] = [
         description:
           "Three reclining poses documented from consistent viewpoints for the study of weight, proportion, foreshortening, and form.",
         price: 18,
-        cover: null,
+        cover: firstPreview,
         poses: [
           {
             id: "FA 0001 / S01 / P01",
@@ -218,9 +217,7 @@ export const collections: Collection[] = [
 ];
 
 export function getCollection(slug: string) {
-  return collections.find(
-    (collection) => collection.slug === slug
-  );
+  return collections.find((collection) => collection.slug === slug);
 }
 
 export function getArchiveStudy(
@@ -269,12 +266,51 @@ export function getStudyReferenceCount(
 }
 
 /*
-  TEMPORARY LEGACY COMPATIBILITY
+  STUDY ROUTES
 
-  The existing live website still expects the older
-  Study structure. We are keeping this section
-  temporarily so FigureArchives.com continues to
-  build while the pages are migrated to Collections.
+  These map individual study URLs to the new
+  Collection → Study → Pose → View architecture.
+*/
+
+export type StudyRoute = {
+  slug: string;
+  collectionSlug: string;
+  studyCode: string;
+};
+
+export const studyRoutes: StudyRoute[] = [
+  {
+    slug: "fa-0001-s01-reclining-figure",
+    collectionSlug: "fa-0001-the-figure-volume-i",
+    studyCode: "S01",
+  },
+  {
+    slug: "fa-0001-s02-seated-figure",
+    collectionSlug: "fa-0001-the-figure-volume-i",
+    studyCode: "S02",
+  },
+  {
+    slug: "fa-0001-s03-standing-figure",
+    collectionSlug: "fa-0001-the-figure-volume-i",
+    studyCode: "S03",
+  },
+  {
+    slug: "fa-0001-s04-gesture-movement",
+    collectionSlug: "fa-0001-the-figure-volume-i",
+    studyCode: "S04",
+  },
+];
+
+export function getStudyRoute(slug: string) {
+  return studyRoutes.find((route) => route.slug === slug);
+}
+
+/*
+  LEGACY COMPATIBILITY
+
+  Keeping this temporarily prevents older components
+  from breaking while the rest of Figure Archives is
+  migrated to the new collection architecture.
 */
 
 export type Study = {
@@ -313,12 +349,8 @@ export const studies: Study[] = [
     price: 32,
     description:
       "A quiet study of proportion, weight, gesture, and light. Structured as a working reference folio with multiple perspectives of each principal pose.",
-    cover: null,
-    views: createFiveViews(
-      "FA 0001",
-      "S01",
-      "P01"
-    ),
+    cover: firstPreview,
+    views: createFiveViews("FA 0001", "S01", "P01"),
   },
   {
     slug: "fa-0002-gesture-movement",
