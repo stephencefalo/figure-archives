@@ -5925,3 +5925,369 @@ img {
     font-size: 13px;
   }
 }
+/* =========================================================
+   FIGURE ARCHIVES — HOMEPAGE V2
+   ========================================================= */
+
+.fa-home-hero {
+  position: relative;
+  min-height: calc(100vh - 90px);
+  height: 820px;
+  max-height: 940px;
+  overflow: hidden;
+  background: #161513;
+  color: #f7f2e9;
+  display: flex;
+  align-items: center;
+}
+
+.fa-home-hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: url("/a5fb9e0224d2ad03a157eb897ee25dfb28b63155c0d74da2a21fe5f4a867d924.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.fa-home-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 9, 8, 0.88) 0%,
+      rgba(10, 9, 8, 0.67) 32%,
+      rgba(10, 9, 8, 0.18) 61%,
+      rgba(10, 9, 8, 0.04) 100%
+    );
+}
+
+.fa-home-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(1420px, calc(100% - 80px));
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.fa-home-hero-kicker {
+  margin-bottom: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 233, 0.72);
+}
+
+.fa-home-hero h1 {
+  max-width: 780px;
+  margin: 0;
+  font-family:
+    "Iowan Old Style",
+    "Baskerville",
+    "Times New Roman",
+    serif;
+  font-size: clamp(66px, 7.2vw, 122px);
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.fa-home-hero-content > p {
+  max-width: 560px;
+  margin: 36px 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(247, 242, 233, 0.76);
+}
+
+.fa-home-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-top: 40px;
+}
+
+.fa-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 27px;
+  border: 1px solid #f7f2e9;
+  background: #f7f2e9;
+  color: #161513;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.fa-hero-button:hover {
+  background: transparent;
+  color: #f7f2e9;
+}
+
+.fa-hero-link {
+  color: #f7f2e9;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247, 242, 233, 0.5);
+  padding-bottom: 5px;
+}
+
+.fa-home-hero-record {
+  position: absolute;
+  z-index: 2;
+  left: 40px;
+  right: 40px;
+  bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(247, 242, 233, 0.28);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(247, 242, 233, 0.58);
+}
+
+
+/* FOUNDING ARCHIVE */
+
+.fa-founding {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: clamp(50px, 8vw, 130px);
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 150px;
+}
+
+.fa-founding-art {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 62% 37%,
+      rgba(211, 190, 155, 0.45),
+      transparent 24%
+    ),
+    linear-gradient(
+      145deg,
+      #3a332b 0%,
+      #171513 50%,
+      #090909 100%
+    );
+}
+
+.fa-founding-art::before {
+  content: "FA";
+  position: absolute;
+  right: -0.08em;
+  bottom: -0.23em;
+  font-family:
+    "Iowan Old Style",
+    "Baskerville",
+    "Times New Roman",
+    serif;
+  font-size: clamp(230px, 31vw, 520px);
+  line-height: 1;
+  color: rgba(240, 231, 215, 0.055);
+}
+
+.fa-founding-number,
+.fa-founding-status {
+  position: absolute;
+  z-index: 2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(247, 242, 233, 0.72);
+}
+
+.fa-founding-number {
+  top: 24px;
+  left: 24px;
+}
+
+.fa-founding-status {
+  left: 24px;
+  bottom: 24px;
+}
+
+.fa-founding-copy h2 {
+  margin: 20px 0 32px;
+  font-family:
+    "Iowan Old Style",
+    "Baskerville",
+    "Times New Roman",
+    serif;
+  font-size: clamp(48px, 5vw, 78px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.fa-founding-copy > p {
+  max-width: 500px;
+  margin-bottom: 44px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.fa-founding-meta {
+  border-top: 1px solid var(--line);
+  margin-bottom: 38px;
+}
+
+.fa-founding-meta > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fa-founding-meta span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fa-founding-meta strong {
+  font-family:
+    "Iowan Old Style",
+    "Baskerville",
+    "Times New Roman",
+    serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+/* FINAL STATEMENT */
+
+.fa-final-statement {
+  padding: 145px 0;
+  background: #171513;
+  color: #f2eee5;
+}
+
+.fa-final-statement .eyebrow {
+  color: rgba(242, 238, 229, 0.52);
+}
+
+.fa-final-statement h2 {
+  margin: 28px 0 45px;
+  max-width: 900px;
+  font-family:
+    "Iowan Old Style",
+    "Baskerville",
+    "Times New Roman",
+    serif;
+  font-size: clamp(70px, 9vw, 140px);
+  line-height: 0.87;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.fa-final-statement .linkline {
+  color: #f2eee5;
+  border-color: rgba(242, 238, 229, 0.45);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .fa-home-hero {
+    min-height: 760px;
+    height: 86vh;
+    align-items: flex-end;
+  }
+
+  .fa-home-hero-image {
+    background-position: 64% center;
+  }
+
+  .fa-home-hero-shade {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(10, 9, 8, 0.94) 0%,
+        rgba(10, 9, 8, 0.62) 52%,
+        rgba(10, 9, 8, 0.08) 100%
+      );
+  }
+
+  .fa-home-hero-content {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 105px;
+  }
+
+  .fa-home-hero-kicker {
+    margin-bottom: 20px;
+  }
+
+  .fa-home-hero h1 {
+    font-size: clamp(50px, 15vw, 74px);
+    line-height: 0.91;
+  }
+
+  .fa-home-hero-content > p {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .fa-home-hero-actions {
+    gap: 22px;
+    margin-top: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .fa-home-hero-record {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .fa-home-hero-record span:last-child {
+    display: none;
+  }
+
+  .fa-founding {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-bottom: 100px;
+  }
+
+  .fa-founding-art {
+    aspect-ratio: 4 / 5;
+  }
+
+  .fa-final-statement {
+    padding: 100px 0;
+  }
+
+  .fa-final-statement h2 {
+    font-size: clamp(58px, 18vw, 88px);
+  }
+}
