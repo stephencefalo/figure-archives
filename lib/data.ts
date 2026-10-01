@@ -1,8 +1,8 @@
 export type StudyView = {
   id: string;
-  code?: string;
-  pose?: string;
-  view?: string;
+  code: string;
+  pose: string;
+  view: string;
   angle: string;
   preview: string | null;
   thumbnail: string | null;
@@ -218,7 +218,9 @@ export const collections: Collection[] = [
 ];
 
 export function getCollection(slug: string) {
-  return collections.find((collection) => collection.slug === slug);
+  return collections.find(
+    (collection) => collection.slug === slug
+  );
 }
 
 export function getArchiveStudy(
